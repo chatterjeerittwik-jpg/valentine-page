@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine?</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #141e30, #243b55);
+        font-family: 'Segoe UI', sans-serif;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .card {
+        background: rgba(255,255,255,0.12);
+        padding: 30px 25px;
+        border-radius: 18px;
+        max-width: 420px;
+        width: 100%;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    }
+
+    h1 {
+        font-size: 26px;
+        margin-bottom: 15px;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 25px;
+    }
+
+    button {
+        padding: 12px 24px;
+        font-size: 15px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        margin: 6px;
+        transition: transform 0.2s ease;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+    }
+
+    .yes {
+        background: #ff5f7e;
+        color: white;
+    }
+
+    .no {
+        background: #e0e0e0;
+        color: #333;
+    }
+
+    .soft {
+        background: #ffd1dc;
+        color: #333;
+    }
+
+    .back {
+        background: transparent;
+        color: #ddd;
+        border: 1px solid #aaa;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card" id="content"></div>
+
+<script>
+    let noStep = -1;
+
+    const noScreens = [
+        {
+            title: "Are you sure? 🤔",
+            text: "Just checking… sometimes first instincts deserve a second thought."
+        },
+        {
+            title: "Why not? 🥺",
+            text: "No pressure at all — I’m just curious."
+        },
+        {
+            title: "Quick pause ✋",
+            text: "This is not a trap. Just a very polite webpage."
+        },
+        {
+            title: "Scientific consultation 🔬",
+            text: "According to physics, coffee improves decision-making by 73%."
+        },
+        {
+            title: "Button confession 😅",
+            text: "The NO button is starting to question its life choices."
+        },
+        {
+            title: "Personality test moment 🧠",
+            text: "Interesting… decisive, thoughtful, mysterious."
+        },
+        {
+            title: "Okay okay 😄",
+            text: "This is officially getting a little funny now."
+        },
+        {
+            title: "Alright, last one 😌",
+            text: "The button is tired. Promise."
+        }
+    ];
+
+    function renderMain() {
+        noStep = -1;
+        document.getElementById("content").innerHTML = `
+            <h1>Hey Jessica 🌸</h1>
+            <p>
+                You’re a high-energy researcher at Jadavpur University,  
+                and I’m Rittwik — a theoretical condensed matter physicist.
+                <br><br>
+                Would you like to be my Valentine this <b>14th February</b>? 💫
+            </p>
+            <button class="yes" onclick="yesPage()">Yes 💖</button>
+            <button class="no" onclick="nextNo()">No 🙃</button>
+        `;
+    }
+
+    function nextNo() {
+        noStep++;
+        if (noStep < noScreens.length) {
+            renderNoScreen();
+        } else {
+            finalRespect();
+        }
+    }
+
+    function prevNo() {
+        noStep--;
+        if (noStep < 0) {
+            renderMain();
+        } else {
+            renderNoScreen();
+        }
+    }
+
+    function renderNoScreen() {
+        document.getElementById("content").innerHTML = `
+            <h1>${noScreens[noStep].title}</h1>
+            <p>${noScreens[noStep].text}</p>
+            <button class="soft" onclick="nextNo()">Continue →</button>
+            <button class="back" onclick="prevNo()">← Back</button>
+        `;
+    }
+
+    function finalRespect() {
+        document.getElementById("content").innerHTML = `
+            <h1>I respect your decision 🌱</h1>
+            <p>
+                Thanks for being honest and kind enough to read through.
+                <br><br>
+                No awkwardness, no pressure — just good energy and respect.
+                <br><br>
+                Wishing you a warm Valentine’s Day ✨
+            </p>
+        `;
+    }
+
+    function yesPage() {
+        document.getElementById("content").innerHTML = `
+            <h1>✨ That made me smile ✨</h1>
+            <p>
+                Looks like this Valentine’s Day  
+                has a stable ground state after all 💕
+                <br><br>
+                Coffee, a walk, or just a good conversation —  
+                we’ll figure it out 😊
+            </p>
+        `;
+    }
+
+    renderMain();
+</script>
+
+</body>
+</html>

@@ -118,20 +118,23 @@
         }
     ];
 
-    function renderMain() {
-        noStep = -1;
-        document.getElementById("content").innerHTML = `
-            <h1>Hey Jessica 🌸</h1>
-            <p>
-                You’re a high-energy researcher at Jadavpur University,  
-                and I’m Rittwik — a theoretical condensed matter physicist.
-                <br><br>
-                Would you like to be my Valentine this <b>14th February</b>? 💫
-            </p>
-            <button class="yes" onclick="yesPage()">Yes 💖</button>
-            <button class="no" onclick="nextNo()">No 🙃</button>
-        `;
-    }
+function renderMain() {
+    noStep = -1;
+    document.getElementById("content").innerHTML = `
+        <h1>Hey Jessica 🌸</h1>
+        <p>
+            No long derivations today.
+            <br><br>
+            Just a question with two possible outcomes —
+            both equally respected.
+            <br><br>
+            Would you like to be my Valentine this <b>14th February</b>?
+        </p>
+        <button class="yes" onclick="yesPage()">Yes 💖</button>
+        <button class="no" onclick="nextNo()">No 🙃</button>
+    `;
+}
+
 
     function nextNo() {
         noStep++;
@@ -191,3 +194,4 @@
 
 </body>
 </html>
+
